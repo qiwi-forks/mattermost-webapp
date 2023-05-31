@@ -420,6 +420,8 @@ const defaultServerConfig: AdminConfig = {
         DiscoveryEndpoint: '',
         ButtonText: '',
         ButtonColor: '#145DBF',
+        SystemAdminGroup: '',
+        SystemUserGroup: '',
     },
     LdapSettings: {
         Enable: false,
