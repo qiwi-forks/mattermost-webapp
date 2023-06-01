@@ -420,6 +420,7 @@ const defaultServerConfig: AdminConfig = {
         DiscoveryEndpoint: '',
         ButtonText: '',
         ButtonColor: '#145DBF',
+        EnableGroupsMapping: false,
         SystemAdminGroup: '',
         SystemUserGroup: '',
     },

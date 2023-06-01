@@ -582,6 +582,7 @@ export type SSOSettings = {
     DiscoveryEndpoint: string;
     ButtonText: string;
     ButtonColor: string;
+    EnableGroupsMapping: boolean;
     SystemAdminGroup: string;
     SystemUserGroup: string;
 };

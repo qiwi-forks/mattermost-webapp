@@ -5542,6 +5542,16 @@ const AdminDefinition = {
                         isDisabled: it.not(it.userHasWritePermissionOnResource(RESOURCE_KEYS.AUTHENTICATION.OPENID)),
                     },
                     {
+                        type: Constants.SettingsTypes.TYPE_BOOL,
+                        key: 'OpenIdSettings.EnableGroupsMapping',
+                        label: t('admin.openid.enableGroupsMapping'),
+                        label_default: 'Enable groups mapping:',
+                        help_text: t('admin.openid.systemAdminGroupDescription'),
+                        help_text_default: 'When true, enables mapping of mattermost system roles to groups provided by identity provider. ',
+                        isHidden: it.any(it.not(it.stateEquals('openidType', Constants.OPENID_SERVICE)), it.licensedForCloudStarter),
+                        isDisabled: it.not(it.userHasWritePermissionOnResource(RESOURCE_KEYS.AUTHENTICATION.OPENID)),
+                    },
+                    {
                         type: Constants.SettingsTypes.TYPE_TEXT,
                         key: 'OpenIdSettings.SystemAdminGroup',
                         label: t('admin.openid.systemAdminGroup'),
@@ -5550,7 +5560,7 @@ const AdminDefinition = {
                         help_text_default: 'Mapping the system_admin role to the group provided by the identity provider.',
                         placeholder: t('admin.openid.systemAdminGroupExample'),
                         placeholder_default: 'E.g.: "/mattermost-system-admin"',
-                        isHidden: it.any(it.not(it.stateEquals('openidType', Constants.OPENID_SERVICE)), it.licensedForCloudStarter),
+                        isHidden: it.any(it.not(it.stateEquals('openidType', Constants.OPENID_SERVICE)), it.licensedForCloudStarter, it.stateIsFalse('OpenIdSettings.EnableGroupsMapping')),
                         isDisabled: it.not(it.userHasWritePermissionOnResource(RESOURCE_KEYS.AUTHENTICATION.OPENID)),
                     },
                     {
@@ -5562,7 +5572,7 @@ const AdminDefinition = {
                         help_text_default: 'Mapping the system_user role to the group provided by the identity provider.',
                         placeholder: t('admin.openid.systemUserGroupExample'),
                         placeholder_default: 'E.g.: "/mattermost-system-user"',
-                        isHidden: it.any(it.not(it.stateEquals('openidType', Constants.OPENID_SERVICE)), it.licensedForCloudStarter),
+                        isHidden: it.any(it.not(it.stateEquals('openidType', Constants.OPENID_SERVICE)), it.licensedForCloudStarter, it.stateIsFalse('OpenIdSettings.EnableGroupsMapping')),
                         isDisabled: it.not(it.userHasWritePermissionOnResource(RESOURCE_KEYS.AUTHENTICATION.OPENID)),
                     },
                     {
