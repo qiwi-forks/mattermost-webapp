@@ -251,7 +251,7 @@ export type RequestLicenseBody = {
     users: number;
     terms_accepted: boolean;
     receive_emails_accepted: boolean;
-}
+};
 
 export type DataRetentionPolicy = {
     message_deletion_enabled: boolean;
@@ -582,6 +582,9 @@ export type SSOSettings = {
     DiscoveryEndpoint: string;
     ButtonText: string;
     ButtonColor: string;
+    EnableGroupsMapping: boolean;
+    SystemAdminGroup: string;
+    SystemUserGroup: string;
 };
 
 export type Office365Settings = {
@@ -907,15 +910,15 @@ export type ReplicaLagSetting = {
     DataSource: string;
     QueryAbsoluteLag: string;
     QueryTimeLag: string;
-}
+};
 
 export type EnvironmentConfigSettings<T> = {
     [P in keyof T]: boolean;
-}
+};
 
 export type EnvironmentConfig = {
     [P in keyof AdminConfig]: EnvironmentConfigSettings<AdminConfig[P]>;
-}
+};
 
 export type WarnMetricStatus = {
     id: string;
@@ -925,8 +928,8 @@ export type WarnMetricStatus = {
 };
 
 export enum CollapsedThreads {
-    DISABLED = 'disabled',
-    DEFAULT_ON = 'default_on',
-    DEFAULT_OFF = 'default_off',
-    ALWAYS_ON = 'always_on',
+    DISABLED = "disabled",
+    DEFAULT_ON = "default_on",
+    DEFAULT_OFF = "default_off",
+    ALWAYS_ON = "always_on",
 }
