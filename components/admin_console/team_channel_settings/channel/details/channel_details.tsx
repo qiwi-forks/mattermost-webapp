@@ -712,17 +712,15 @@ export default class ChannelDetails extends React.PureComponent<ChannelDetailsPr
                     toPublic={isPublic}
                 />
 
-                {this.props.channelModerationEnabled &&
-                    <ChannelModeration
-                        channelPermissions={channelPermissions}
-                        onChannelPermissionsChanged={this.channelPermissionsChanged}
-                        teamSchemeID={teamScheme?.id}
-                        teamSchemeDisplayName={teamScheme?.display_name}
-                        guestAccountsEnabled={this.props.guestAccountsEnabled}
-                        isPublic={this.props.channel.type === Constants.OPEN_CHANNEL}
-                        readOnly={this.props.isDisabled}
-                    />
-                }
+                <ChannelModeration
+                    channelPermissions={channelPermissions}
+                    onChannelPermissionsChanged={this.channelPermissionsChanged}
+                    teamSchemeID={teamScheme?.id}
+                    teamSchemeDisplayName={teamScheme?.display_name}
+                    guestAccountsEnabled={this.props.guestAccountsEnabled}
+                    isPublic={this.props.channel.type === Constants.OPEN_CHANNEL}
+                    readOnly={this.props.isDisabled}
+                />
 
                 <RemoveConfirmModal
                     show={showRemoveConfirmModal}

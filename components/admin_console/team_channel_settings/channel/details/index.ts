@@ -55,10 +55,10 @@ function mapStateToProps(state: GlobalState, ownProps: OwnProps) {
     const config = getConfig(state);
     const license = getLicense(state);
 
-    const isLicensed = license?.IsLicensed === 'true';
+    const isLicensed = true;
 
     // Channel Moderation is only available for Professional, Enterprise and backward compatible with E20
-    const channelModerationEnabled = isLicensed && (license.SkuShortName === LicenseSkus.Professional || license.SkuShortName === LicenseSkus.Enterprise || license.SkuShortName === LicenseSkus.E20);
+    const channelModerationEnabled = true;
 
     // Channel Groups is only available for Enterprise and backward compatible with E20
     const channelGroupsEnabled = isLicensed && (license.SkuShortName === LicenseSkus.Enterprise || license.SkuShortName === LicenseSkus.E20);
